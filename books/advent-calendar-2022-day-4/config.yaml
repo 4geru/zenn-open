@@ -1,0 +1,13 @@
+title: "Google Apps Script(GAS)で、月次アンケート作成を自動化した話"
+summary: ""
+topics: ["gas", "deepl", "kibela"]
+published: false
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction
+  - google-spread-sheet
+  - kibela
+  - google-form
+  - deepl
+  - conclusion
