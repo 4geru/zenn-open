@@ -3,7 +3,7 @@ title: "おわりに"
 ---
 
 今回は LGTM 賞の受賞選定 Form の自動生成についてまとめました。
-GAS からカスタムメニューを利用することができたり、 kibela, DeepL など外部 API と繋いだり、もちろん Google の SpreadSheet, Google Form との連携も可能です。
+GAS と kibela, DeepL など外部 API と繋いだり、もちろん SpreadSheet への書き込み、読み込み、カスタムメニューを追加, Google Form の作成も可能です。
 
 この記事を見て、自動化が好きなエンジニア, GAS に興味を持ってくれるエンジニアさんが増えると良いと思っています。
 最後まで読んでいただきありがとうございました。

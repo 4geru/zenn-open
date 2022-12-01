@@ -2,9 +2,13 @@
 title: "Kibela(GraphQL)"
 ---
 
+## Kibela
+
+マネーフォワードでは、社内ドキュメントツールとして、 Kibela を利用しています。LGTM賞の候補は Kibela に毎月集められます。
+
 公式ドキュメント： [KibelaのWeb APIについて – Kibelaヘルプセンター](https://support.kibe.la/hc/ja/articles/360035089312-Kibela%E3%81%AEWeb-API%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
 
-関数化して、指定した URL から記事を取得できるようにします。
+関数化し、指定した URL から記事を取得できるようにします。
 
 ```js:sample_call.gs
 let articleUrl = 'https://KIBELA_TEAM.kibe.la/notes/000000';

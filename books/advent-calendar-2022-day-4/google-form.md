@@ -2,19 +2,19 @@
 title: "Google Form API"
 ---
 
-公式ドキュメント： [Class FormApp | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/forms/form-app)
+## Google Form API
+
 
 Google Form 言語選択セクション と LGTM賞選択セクション の 2つを作ります。
 LGTM賞選択 section は、日本語 / 英語それぞれのフォームを用意します。
 
-## Google Form API
-
-Google Form では、 Item 単位で、選択肢を追加します。ラジオボタン、チェックボックスは、それぞれ MultipleChoiceItem 、 CheckboxItem で、指定可能です。
+フォームの作成は、 Item 単位で、選択肢を追加します。ラジオボタン、チェックボックスは、それぞれ MultipleChoiceItem 、 CheckboxItem で、指定可能です。
 参考： [GASでGoogleフォームに追加できる質問の種類とそのメソッドまとめ](https://tonari-it.com/gas-form-add-items/)
 
 言語選択セクション から LGTM賞選択セクション のページ切り替えは、 PageBreakItem を利用し、次のページに遷移します。公式のサンプルがわかりやすいので、興味のある方は見てください。
 参考：[Class PageBreakItem | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/forms/page-break-item)
 
+公式ドキュメント： [Class FormApp | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/forms/form-app)
 
 ## 言語選択セクション
 
@@ -51,22 +51,25 @@ LGTM賞選択セクション では、日本語、英語のフォームをそれ
 LGTM 賞の選択は、複数投稿を可能にしており、チェックボックスを利用しています。
 `エンジニアブログ`, `OSS関係`, `有志活動`, `slackでの議論など` などのカテゴリーごとに、選択フォームを分けています。
 
-```diff:google_form.ts
+```diff js:google_form.ts
 -const separatedJapaneseForm = (form) => {
 +const separatedEnglishForm = (form) => {
 - let japanesePage = form.addPageBreakItem().setTitle('日本語');
 + let englishPage = form.addPageBreakItem().setTitle('English');
   const spreadSheetHash = separatedFetchSpreadSheetHash();
+  // カテゴリーごとの item の作成
   for (let category in spreadSheetHash) {
     let item = form.addCheckboxItem();
 -   item.setTitle(category);
 +   item.setTitle(deeplTranslate([category], "JA", "EN")[0].text);
+    // LGTM賞の候補の追加をしています
     const choices = spreadSheetHash[category].map((row) => {
 +     const choice = deeplTranslate([row[1] + row[2]], "JA", "EN")[0].text
       return item.createChoice(choice)
     })
     item.setChoices(choices);
   }
+  // ご意見・感想の自由記述フォーム
   form.addParagraphTextItem()
 -   .setTitle('励まし・推薦メッセージ・その他ご意見感想などなんでも自由記入欄')
 +   .setTitle('Encouragement, recommendation messages, and any other opinions and impressions you may have.')

@@ -2,17 +2,20 @@
 title: "DeepL(RestAPI)"
 ---
 
+## DeepL
+マネーフォワードではグローバルメンバーも増えています。メンバーによっては、英語の方が得意なメンバーもいます。DeepL を利用し、公平な審査ができる仕組みにしています。
+DeepL の API の利用方法は、 [pnizo](https://qiita.com/pnizo)さん の [【GoogleAppsScript】GASでDeepL APIを叩く - Qiita](https://qiita.com/pnizo/items/338b1a1398127a8942e5) 記事を参考にさせていただきました。
+
 公式ドキュメント： [DeepL API](https://www.deepl.com/docs-api/translate-text/)
 
-関数化して、メッセージ、翻訳元の言語、翻訳語の言語の形にします。
+関数化し、メッセージ、翻訳元の言語、翻訳語の言語の形にします。
 
 ```js:sample_call.gs
 deeplTranslate([message], "JA", "EN")[0].text
 ```
 
-[pnizo-san](https://qiita.com/pnizo) の [【GoogleAppsScript】GASでDeepL APIを叩く - Qiita](https://qiita.com/pnizo/items/338b1a1398127a8942e5) 記事を参考にさせていただきました。
+中身は、よくある REST API の形式でリクエストを行います。
 
-中身としては、よくある REST API の形式でリクエストを行います。
 
 ```js:deepl.gs
 const DEEPL_API_TOKEN = 'DEEPL_API_TOKEN'
@@ -43,7 +46,6 @@ const deeplTranslate = (texts, src, tgt) => {
   try {
     const response = UrlFetchApp.fetch(DEEPL_API_URL, parameters);
   } catch (e) {
-    Logger.log(e.toString());
     return 'DeepL:Exception';
   }
 
