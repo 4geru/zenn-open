@@ -4,9 +4,9 @@ title: "はじめに"
 
 この記事は、[マネフォアドベントカレンダー2022](https://adventar.org/calendars/7397) 4日目の投稿です。
 3日目は @thinceller さんで [マネーフォワードのフロントエンドを前に進めるフロントエンド推進グループの紹介](https://moneyforward.com/engineers_blog/2022/12/03/enabling-frontend-forward/) でした。
-本日は [しげる(@4geru)](https://twitter.com/_4geru) が「Google Apps Script(GAS)を使い倒して、月次アンケート作成を自動化した話」について書いていきたいと思います。
+本日は [しげる(@4geru)](https://twitter.com/_4geru) が「Google Apps Script(GAS)を使い倒して、アンケート作成を自動化した話」について書いていきたいと思います。
 
-GAS x さまざまな API の利用方法についてまとめています。興味のあるところだけでも読んでもらえれば嬉しいです。今回の記事で書かれているコードはコピペすることで簡単に動くので、ぜひ！お手元でも試していただけると嬉しいです。
+GAS x さまざまな API の利用方法についてまとめています。興味のあるところだけでも読んでもらえれば嬉しいです。今回の記事で書かれているコードはコピペすることで簡単に動くので、ぜひ！お手元でも試していただけます。
 
 1ヶ月に一度に、テクノロジーで良い行いをした人に対して、 LGTM 賞 として表彰しています。LGTM 賞 については、本アドベントカレンダーの初日に [luccafort](https://twitter.com/luccafort)が [ナレッジの淀みを解消するLGTM賞 〜小さく始めて大きく育てるコミュニティマネジメント〜](https://moneyforward.com/engineers_blog/2022/12/01/lgtm-award/) にまとめているので、ぜひ読んでください。
 
