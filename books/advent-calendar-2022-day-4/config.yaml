@@ -1,0 +1,15 @@
+title: "Google Apps Script(GAS)を使い倒して、アンケート作成を自動化した話"
+summary:
+  GAS x さまざまな API の利用方法についてまとめています。興味のあるところだけでも読んでもらえれば嬉しいです。
+  今回の記事で書かれているコードはコピペすることで簡単に動くので、ぜひ！お手元でも試していただけます。
+topics: ["gas", "graphql", "restapi", "deepl", "kibela"]
+published: false
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction
+  - google-spread-sheet
+  - kibela
+  - deepl
+  - google-form
+  - conclusion
