@@ -3,7 +3,7 @@ title: "DeepL(RestAPI)"
 ---
 
 ## DeepL
-マネーフォワードではグローバルメンバーも増えています。メンバーによっては、英語の方が得意なメンバーもいます。DeepL を利用し、公平な審査ができる仕組みにしています。
+マネーフォワードでは非日本語話者なエンジニアも増えています。メンバーによっては、英語の方が得意なメンバーもいます。DeepL を利用し、公平な審査ができる仕組みにしています。
 DeepL の API の利用方法は、 [pnizo](https://qiita.com/pnizo)さん の [【GoogleAppsScript】GASでDeepL APIを叩く - Qiita](https://qiita.com/pnizo/items/338b1a1398127a8942e5) 記事を参考にさせていただきました。
 
 公式ドキュメント： [DeepL API](https://www.deepl.com/docs-api/translate-text/)
@@ -49,9 +49,9 @@ const deeplTranslate = (texts, src, tgt) => {
     return 'DeepL:Exception';
   }
 
-  let response_code = response.getResponseCode().toString();
+  const responseCode = response.getResponseCode().toString();
 
-  if (response_code != 200) return 'DeepL:HTTP Error(' + response_code + ')'
+  if (responseCode != 200) return 'DeepL:HTTP Error(' + responseCode + ')'
 
   // JSONからテキストを取り出す
   const json = JSON.parse(response.getContentText('UTF-8'));
