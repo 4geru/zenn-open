@@ -4,17 +4,16 @@ title: "Google Form API"
 
 ## Google Form API
 
+公式ドキュメント： [Class FormApp | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/forms/form-app)
 
-Google Form 言語選択セクション と LGTM賞選択セクション の 2つを作ります。
-LGTM賞選択 section は、日本語 / 英語それぞれのフォームを用意します。
+Google Form 言語選択セクション と LGTM賞選択セクション の 2つを作ります。LGTM賞選択 section は、日本語 / 英語それぞれのフォームを用意していました。
+※ ユーザー視点では、自分の言語だけ表示されてよかったのですが、運営視点から集計が大変になり、現在は同じフォームで出しているようです。
 
 フォームの作成は、 Item 単位で、選択肢を追加します。ラジオボタン、チェックボックスは、それぞれ MultipleChoiceItem 、 CheckboxItem で、指定可能です。
 参考： [GASでGoogleフォームに追加できる質問の種類とそのメソッドまとめ](https://tonari-it.com/gas-form-add-items/)
 
 言語選択セクション から LGTM賞選択セクション のページ切り替えは、 PageBreakItem を利用し、次のページに遷移します。公式のサンプルがわかりやすいので、興味のある方は見てください。
 参考：[Class PageBreakItem | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/forms/page-break-item)
-
-公式ドキュメント： [Class FormApp | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/forms/form-app)
 
 ## 言語選択セクション
 
@@ -80,5 +79,7 @@ LGTM 賞の選択は、複数投稿を可能にしており、チェックボッ
 + return englishPage
 }
 ```
+
+実行すると、次のようなアンケートフォームが作成されます。
 
 ![英語フォーム](/images/books/advent-calendar-2022-day-4/google-forms-english-section.png =500x)

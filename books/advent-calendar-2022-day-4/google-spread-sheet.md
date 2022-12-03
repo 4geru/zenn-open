@@ -32,6 +32,13 @@ const setCustomMenu = () => {
 
 公式ドキュメント： [Class Sheet | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/spreadsheet/sheet#getrangea1notation)
 
+```js
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/xxxxxx/edit#gid=0'
+const spreadSheet = SpreadsheetApp.openByUrl(SHEET_URL);
+const targetSheet = spreadSheet.getSheetByName("spread sheets tab name");
+const a1Value = targetSheet.getRange(`A1`).google();
+```
+
 getRange では [A1 表記または R1C1 表記](https://developers.google.com/sheets/api/guides/concepts?hl=id#cell) が可能です。
 getValue() で 1 つの要素を、 getValues() で、2重配列の複数要素を取得できます。
 
@@ -51,26 +58,19 @@ getRange(`A1:B2`).getValue()
 // => [[A1, B1], [A2, B2]]
 ```
 
-複数要素を取得したい場合は getRange(`A1:A2`).getValues() のようにすると、複数要素の取得が可能です。
-
-```js
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/xxxxxx/edit#gid=0'
-const spreadSheet = SpreadsheetApp.openByUrl(SHEET_URL);
-const targetSheet = spreadSheet.getSheetByName("spread sheets tab name");
-const a1Value = targetSheet.getRange(`A1`).google();
-```
-
 ## Google Sheets への書き込み
 
 公式ドキュメント： [Class Sheet | Apps Script | Google Developers](https://developers.google.com/apps-script/reference/spreadsheet/sheet#appendrowrowcontents)
 
 読み込みのように getRange(`A1`).setValue(value) で値の設定が可能です。
-今回は複数要素を、最後に追加する appendRow を利用します
+今回は複数要素を、最後の行に追加する appendRow を利用します
 
 ```js
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/xxxxxx/edit#gid=0' // 読み取りと同じなので、どちらかだけで良い
-const spreadSheet = SpreadsheetApp.openByUrl(SHEET_URL);                     // 上と同じ
+// 読み取りと同じなので、どちらかだけで良い
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/xxxxxx/edit#gid=0'
+const spreadSheet = SpreadsheetApp.openByUrl(SHEET_URL);
 const targetSheet = spreadSheet.getSheetByName("google sheets tab name");
+// 最後の行に要素を追加する
 targetSheet.appendRow([
   'message 1',
   'message 2',
