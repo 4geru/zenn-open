@@ -4,7 +4,7 @@ title: "Google Spread Sheet"
 
 ## Google Spread Sheet
 
-Spread Sheet では、 Spread Sheet にインポートする機能と Google Form にエクスポートする機能を実装します。一度 Spread SHeet に、インポートすることで、文言の修正、絵文字、markdown 記述の修正などが可能になります。また、カスタムメニューを設置し、ボタンを押すと、この2つの機能を呼び出せるようにし、誰でも実行しやすいようにします。
+Spread Sheet では、 Spread Sheet にインポートする機能と Google Form にエクスポートする機能を実装します。一度 Spread Sheet に、インポートすることで、文言の修正、絵文字、markdown 記述の修正などが可能になります。また、カスタムメニューを設置し、ボタンを押すと、この2つの機能を呼び出せるようにし、誰でも実行しやすいようにします。
 
 ## カスタムメニューの設定
 
@@ -15,7 +15,7 @@ Spread Sheet には、カスタムメニューという機能があり、GASで�
 
 ```js:setCustomMenu
 const setCustomMenu = () => {
-  const ui = Spread SheetApp.getUi();
+  const ui = SpreadsheetApp.getUi();
   ui.createMenu('★ 独自メニュー ★')
       .addItem('🍣 LGTM賞候補をkibelaからインポート', 'functionA')
       .addItem('🍺 LGTM賞候補をformにエクスポート', 'functionB')
@@ -36,9 +36,9 @@ const setCustomMenu = () => {
 複数要素を取得したい場合は getRange(`A1:A2`).getValues() のようにすると、複数要素の取得が可能です。
 
 ```js
-const SHEET_URL = 'https://docs.google.com/Spread Sheets/d/xxxxxx/edit#gid=0'
-const Spread Sheet = Spread SheetApp.openByUrl(SHEET_URL);
-const targetSheet = Spread Sheet.getSheetByName("spread sheet tab name");
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/xxxxxx/edit#gid=0'
+const spreadSheet = SpreadsheetApp.openByUrl(SHEET_URL);
+const targetSheet = spreadSheet.getSheetByName("spread sheet tab name");
 const a1Value = targetSheet.getRange(`A1`).getValue();
 ```
 
@@ -50,9 +50,9 @@ const a1Value = targetSheet.getRange(`A1`).getValue();
 今回は複数要素を、最後に追加する appendRow を利用します
 
 ```js
-const SHEET_URL = 'https://docs.google.com/Spread Sheets/d/xxxxxx/edit#gid=0' // 読み取りと同じなので、どちらかだけで良い
-const Spread Sheet = Spread SheetApp.openByUrl(SHEET_URL);                     // 上と同じ
-const targetSheet = Spread Sheet.getSheetByName("spread sheet tab name");
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/xxxxxx/edit#gid=0' // 読み取りと同じなので、どちらかだけで良い
+const spreadSheet = SpreadsheetApp.openByUrl(SHEET_URL);                     // 上と同じ
+const targetSheet = spreadSheet.getSheetByName("spread sheet tab name");
 targetSheet.appendRow([
   'message 1',
   'message 2',
